@@ -7,15 +7,15 @@ import eCommercialDemo.dataAccess.abstracts.UserDao;
 import eCommercialDemo.entities.concretes.User;
 
 public class UserDaoManager implements UserDao {
-	
+
 	List<User> users = new ArrayList<User>();
 
 	@Override
 	public void add(User user) {
 		users.add(user);
-		
-		System.out.println("user added: "+user.getFirstName());
-		
+
+		System.out.println("user added: " + user.getFirstName());
+
 	}
 
 	@Override
@@ -24,63 +24,62 @@ public class UserDaoManager implements UserDao {
 		userToUpdate.setFirstName(user.getFirstName());
 		userToUpdate.setLastName(user.getLastName());
 		userToUpdate.setEmail(user.getEmail());
-		
-		System.out.println("user updated: "+userToUpdate.getFirstName());
-		
+
+		System.out.println("user updated: " + userToUpdate.getFirstName());
+
 	}
 
 	@Override
 	public void delete(User user) {
 		users.remove(user.getId());
-		users.removeIf(u->u.getId()==user.getId());
-		
-		System.out.println("user deleted: "+user.getFirstName());
-		
+		users.removeIf(u -> u.getId() == user.getId());
+
+		System.out.println("user deleted: " + user.getFirstName());
+
 	}
 
 	@Override
 	public List<User> getAll() {
-		
-		
+
 		System.out.println("user was listed: ");
 		return users;
 	}
 
 	@Override
 	public User getById(int id) {
-		
-		for (User user:users) {
-			if(user.getId()==id) {
+
+		for (User user : users) {
+			if (user.getId() == id) {
 				return user;
 			}
-			
-		}		
-		//User user = users.get(id);
+
+		}
+		// User user = users.get(id);
 		return null;
 	}
-	
+
 	@Override
-	public User getByMail(String email){
-		for (User user:users) {
-			if(user.getEmail()==email) {
+	public User getByMail(String email) {
+		for (User user : users) {
+			if (user.getEmail() == email) {
 				return user;
 			}
-			
-		}		
-		//User user = users.get(id);
+
+		}
+		// User user = users.get(id);
 		return null;
 	}
-	
+
 	@Override
 	public User getByMailAndPassword(String email, String password) {
-		for (User user:users) {
-			if(user.getEmail()==email && user.getPassword()==password) {
+		for (User user : users) {
+			if (user.getEmail() == email && user.getPassword() == password) {
 				return user;
 			}
-			
-		}		
+
+		}
 
 		return null;
 	}
-	
+
 }

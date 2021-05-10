@@ -2,14 +2,14 @@ package eCommercialDemo.entities.concretes;
 
 import eCommercialDemo.entities.abstracts.Entity;
 
-public class User implements Entity{
-	
+public class User implements Entity {
+
 	private int id;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	
+
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
