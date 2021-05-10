@@ -12,6 +12,6 @@ public interface UserService {
 	List<User> getAll();
 	User getById(int id);
 	User getByMail(String email);
-	boolean AccountVerify(User User);
+	User getByMailAndPassword(String email, String password);
 	
 }

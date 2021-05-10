@@ -12,7 +12,7 @@ public interface UserDao {
 	List<User> getAll();
 	User getById(int id);
 	User getByMail(String email);
-	boolean AccountVerify(User User);
+	public User getByMailAndPassword(String email, String password);
 	
 
 }

@@ -1,10 +1,11 @@
 package eCommercialDemo.business.abstracts;
 
-import eCommercialDemo.entities.concretes.User;
 
 public interface EmailService {
 	
-	void send (String email, String to);
+	
+	void sendSuccessful (String email, String to);
+	void sendFailed (String email, String to);
 	
 
 }

@@ -31,11 +31,10 @@ public class UserDaoManager implements UserDao {
 
 	@Override
 	public void delete(User user) {
-		
 		users.remove(user.getId());
 		users.removeIf(u->u.getId()==user.getId());
 		
-		System.out.println("user deleted with id: "+user.getId());
+		System.out.println("user deleted: "+user.getFirstName());
 		
 	}
 
@@ -71,10 +70,17 @@ public class UserDaoManager implements UserDao {
 		//User user = users.get(id);
 		return null;
 	}
+	
 	@Override
-	public boolean AccountVerify(User user) {
-		System.out.println("Account verified"+user);
-		return true;
+	public User getByMailAndPassword(String email, String password) {
+		for (User user:users) {
+			if(user.getEmail()==email && user.getPassword()==password) {
+				return user;
+			}
+			
+		}		
+
+		return null;
 	}
 	
 }
